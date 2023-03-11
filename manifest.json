@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "Sparx Bookwork Code Helper",
+  "version": "0.1.0",
+  "description": "A tool to make sparx homework quicker to do by saving the bookwork codes for you. Make sure you use the mouse not the keyboard to select the different sections as it currently does not work with the keyboard.",
+  "content_scripts": [
+    {
+      "matches": ["https://marlingschool.sparxmaths.uk/student"],
+      "js": ["script.js"]
+    }
+  ]
+}
