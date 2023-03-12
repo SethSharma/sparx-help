@@ -139,18 +139,15 @@ function getAnswer(bookworkCode) {
       ".answer > .answer-part-outer > .answer-part > .gap-container > .gap-slot > div > div > div > div > .text > .katex > .katex-mathml"
     ) != null
   ) {
-    const vars = [...document.querySelectorAll("span.mord.mathdefault")]
-    vars.shift()
-    const signs = [...document.querySelectorAll("span.mrel")]
-    signs.shift()
+    const part1 = [...document.querySelectorAll(".answer-part > div > span > span > .katex-html")]
     const values = [
       ...document.querySelectorAll(
         ".answer > .answer-part-outer > .answer-part > .gap-container > .gap-slot > div > div > div > div > .text > .katex > .katex-html .base"
       ),
     ]
-    answer = vars
+    answer = part1
       .reduce((a, l, i) => {
-        return `${a}, ${l.textContent} ${signs[i].textContent} ${values[i].outerHTML}`
+        return `${a}, ${l.outerHTML} ${values[i].outerHTML}`
       }, "")
       .replace(", ", "")
   }
