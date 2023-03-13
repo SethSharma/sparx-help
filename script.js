@@ -136,20 +136,35 @@ function getAnswer(bookworkCode) {
 
   if (
     document.querySelector(
+      ".answer > div > .choice-select-all.text-container > div > span" != null
+    )
+  ) {
+    answer = [
+      ...document.querySelectorAll(
+        ".choice.choice-text.selected > div > span > span > .katex-html > .base > .mord > .mord > .mord"
+      ),
+    ].reduce((a, i) => {
+      return `${a} ${i.textContent}`
+    }, "")
+  }
+  if (
+    document.querySelector(
       ".answer > .answer-part-outer > .answer-part > .gap-container > .gap-slot > div > div > div > div > .text > .katex > .katex-mathml"
     ) != null
   ) {
-    const part1 = [...document.querySelectorAll(".answer-part > div > span > span > .katex-html")]
+    const part1 = [
+      ...document.querySelectorAll(
+        ".answer-part > div > span > span > .katex-html"
+      ),
+    ]
     const values = [
       ...document.querySelectorAll(
         ".answer > .answer-part-outer > .answer-part > .gap-container > .gap-slot > div > div > div > div > .text > .katex > .katex-html .base"
       ),
     ]
-    answer = part1
-      .reduce((a, l, i) => {
-        return `${a}, ${l.outerHTML} ${values[i].outerHTML}`
-      }, "")
-      .replace(", ", "")
+    answer = values.reduce((a, l, i) => {
+      return `${a} ${part1[i] ? part1[i].outerHTML : ""} ${l.outerHTML}`
+    }, "")
   }
   answer ??= document.querySelector(".answer input").value
   // console.log({ answer })
