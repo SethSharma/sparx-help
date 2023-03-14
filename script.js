@@ -122,8 +122,8 @@ function getAnswer(bookworkCode) {
   }
 
   if (document.querySelector(".answer > .cards") != null) {
-    let vinc = null
-    if (document.querySelectorAll(".vinculum") != null) vinc = true
+    let vinc = false
+    if (document.querySelector(".vinculum") != null) vinc = true
     answer = [
       ...document.querySelectorAll(
         ".answer > .slots > .slot > .card > div > .text > .katex > .katex-html > .base > span.mord"
