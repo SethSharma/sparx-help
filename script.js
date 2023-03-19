@@ -50,7 +50,14 @@ setInterval(() => {
 //     task.addEventListener("click", getBookworkCode)
 //   })
 // }
-
+async function getQuestion(){
+  if (document.querySelector("#skill-delivery-video-button > span.button-large > span") != null){
+   
+    qustion = document.querySelector("#app-container > div.screen > div.main-view > div > div > div > div.skill-delivery-view > div.view-body > div > div > div > div > div > div.question-text > div > span")
+    document.querySelector("#app-container > div.screen > div.main-view > div > div > div > div.skill-delivery-view > div.view-body > div > div").innerHTML = qustion
+  }
+  
+}
 async function getBookworkCode() {
   let question = false
   // if (firstTime.getBookworkCodes) {
