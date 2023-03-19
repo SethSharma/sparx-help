@@ -6,6 +6,6 @@ Help me.
 Please help me.
 Send help.
 
-Sparx Helper
+## How to install
 To install, download the zipa and unzip it. Go to your manage extensions and click load unpacked. Select the file and enable the extension.
 Now you have a bookwork checker. Congratulations.
